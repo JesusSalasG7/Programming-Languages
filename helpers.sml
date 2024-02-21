@@ -155,3 +155,14 @@ fun equal_expr (e1, e2) =
         | (Var s1, Var s2) => s1 = s2
         | (Shift(x1, y1, e3), Shift(x2, y2, e4)) => real_close (x1, x2) andalso real_close (y1, y2) andalso equal_expr (e3, e4)
         | (_, _) => false
+fun to_string e =
+    case e of
+        NoPoints => "NoPoints"
+        | Point(a, b) => "Point(" ^ (Real.toString a) ^ ", " ^ (Real.toString b) ^ ")"
+        | Line(a, b) => "Line(" ^ (Real.toString a) ^ ", " ^ (Real.toString b) ^ ")"
+        | VerticalLine a => "VerticalLine(" ^ (Real.toString a) ^ ")"
+        | LineSegment(a, b, c, d) => "LineSegment(" ^ (Real.toString a) ^ ", " ^ (Real.toString b) ^ ", " ^ (Real.toString c) ^ ", " ^ (Real.toString d) ^ ")"
+        | Intersect(e1, e2) => "Intersect(" ^ (to_string e1) ^ ", " ^ (to_string e2) ^ ")"
+        | Let(s, e1, e2) => "Let(" ^ s ^ ", " ^ (to_string e1) ^ ", " ^ (to_string e2) ^ ")"
+        | Var s => "Var(" ^ s ^ ")"
+        | Shift(dx, dy, e1) => "Shift(" ^ (Real.toString dx) ^ ", " ^ (Real.toString dy) ^ ", " ^ (to_string e1) ^ ")"
