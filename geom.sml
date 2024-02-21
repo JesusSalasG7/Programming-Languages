@@ -2,7 +2,7 @@
     Programming Languages
     Assignment 01
 
-    Authors:
+    Authors: Juan Hernández
 *)
 
 fun preprocess_prog e =
