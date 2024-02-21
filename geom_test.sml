@@ -59,7 +59,7 @@ end;
 (* 2.3 Eval Line test *)
 let 
 	val current = eval_prog (preprocess_prog (Line(5.0, 2.0)), [])
-	val expected = Line(5.0, 5.0) 
+	val expected = Line(5.0, 2.0) 
 in
     if equal_expr (current, expected)
 	then (print "eval_prog with Line and empty environment worked\n")
