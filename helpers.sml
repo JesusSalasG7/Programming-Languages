@@ -140,7 +140,7 @@ fun intersect (v1, v2) =
 			                    else LineSegment(b_x_start, b_y_start, a_x_end, a_y_end) (* overlapping *)
 		                    end	
 	                end						
-	  | _ => raise Impossible "bad result from intersecting with a line")
+	            | _ => raise Impossible "bad result from intersecting with a line")
       | _ => raise Impossible "bad call to intersect: only for shape values"
 
 fun equal_expr (e1, e2) =

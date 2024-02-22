@@ -35,6 +35,16 @@ in
 	else (print "preprocess failed flipping an improper LineSegment\n")
 end;
 
+(* 1.2 Preprocess LineSegment to flipped LineSegment *)
+let 
+	val current = preprocess_prog (Let("a", Shift(2.0, 3.0, LineSegment(3.2, 4.1, ~3.2, ~4.1)), NoPoints))
+	val expected = Let("a", Shift(2.0, 3.0, LineSegment(~3.2, ~4.1, 3.2, 4.1)), NoPoints)
+in
+    if equal_expr (current, expected)
+	then (print "preprocess flipped an improper LineSegment successfully\n")
+	else (print "preprocess failed flipping an improper LineSegment\n")
+end;
+
 (* 2 Eval tests *)
 
 (* 2.1 Eval NoPoints test *)
