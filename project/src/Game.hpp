@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 #include <src/Player.hpp>
+#include <src/World.hpp>
 
 class Game
 {
@@ -23,11 +24,12 @@ private:
     sf::RenderWindow render_window;
     sf::RenderTexture render_texture;
     sf::Sprite render_sprite;
-    sf::RectangleShape section1;
+
     sf::RectangleShape section2;
     sf::RectangleShape section3;
     sf::RectangleShape section4;
     
     Player player;
+    World world;
     
 };
