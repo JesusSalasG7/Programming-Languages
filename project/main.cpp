@@ -1,6 +1,6 @@
 #include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
 #include <Settings.hpp>
+#include <src/Player.hpp>
 
 int main()
 {   
@@ -26,6 +26,12 @@ int main()
     section3.setFillColor(sf::Color::Blue);
     section4.setFillColor(sf::Color::Yellow);
 
+    // Define al personaje principal
+    Player player{
+        Settings::WINDOW_WIDTH / 2 - Settings::PLAYER_WIDTH / 2, Settings::WINDOW_HEIGHT / 2 - Settings::PLAYER_HEIGHT / 2,
+        Settings::PLAYER_WIDTH, Settings::PLAYER_HEIGHT
+    };
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -44,6 +50,8 @@ int main()
         window.draw(section2);
         window.draw(section3);
         window.draw(section4);
+
+        player.render(window);
 
         window.display();
     }

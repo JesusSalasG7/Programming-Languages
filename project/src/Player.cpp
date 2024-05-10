@@ -1,0 +1,13 @@
+#include <Settings.hpp>
+#include <src/Player.hpp>
+
+Player::Player(float _x, float _y, float w, float h) noexcept
+    : x{_x}, y{_y}, width{w}, height{h}, sprite{Settings::textures["player"]}
+{
+    sprite.setPosition(x, y);
+}
+
+void Player::render(sf::RenderWindow& window) const noexcept
+{
+    window.draw(sprite);
+}
