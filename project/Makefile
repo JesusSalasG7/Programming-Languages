@@ -2,17 +2,28 @@ CXX = clang++ -std=c++17
 
 INCLUDE = -I.
 
-LIBS = -lsfml-graphics -lsfml-window -lsfml-system Settings.o src/*.o
+BUILD_DIR = build
 
-main: Player.o Settings.o main.cpp
+OBJ_RULES = Settings.o Game.o Player.o
+
+LIBS = -lsfml-graphics -lsfml-window -lsfml-system $(BUILD_DIR)/*.o
+
+main: $(BUILD_DIR) $(OBJ_RULES) main.cpp
 	$(CXX) $(INCLUDE) $@.cpp -o $@ $(LIBS)
 
-Settings.o: Settings.hpp Settings.cpp
-	$(CXX) -c $(INCLUDE) Settings.cpp -o Settings.o
+Settings.o: $(BUILD_DIR) Settings.hpp Settings.cpp
+	$(CXX) -c $(INCLUDE) Settings.cpp -o $(BUILD_DIR)/$@
 
-Player.o: src/Player.hpp src/Player.cpp
-	$(CXX) -c $(INCLUDE) src/Player.cpp -o src/Player.o
+Game.o: $(BUILD_DIR) src/Game.hpp src/Game.cpp
+	$(CXX) -c $(INCLUDE) src/Game.cpp -o $(BUILD_DIR)/$@
+
+Player.o: $(BUILD_DIR) src/Player.hpp src/Player.cpp
+	$(CXX) -c $(INCLUDE) src/Player.cpp -o $(BUILD_DIR)/$@
+	
+
+$(BUILD_DIR):
+	mkdir -p $@
 
 .PHONY:
 clean:
-	$(RM) src/*.o *.o main
+	$(RM) $(BUILD_DIR)/*.o main
