@@ -12,18 +12,20 @@ struct Settings
 {
     static const fs::path GRAPHICS_PATH;
 
-    static constexpr int WINDOW_WIDTH{640};
-    static constexpr int WINDOW_HEIGHT{480};
+    static constexpr int WINDOW_WIDTH{1280};
+    static constexpr int WINDOW_HEIGHT{740};
+    static constexpr int VIRTUAL_WIDTH{512};
+    static constexpr int VIRTUAL_HEIGHT{288};
     static constexpr float PLAYER_WIDTH{32.f};
     static constexpr float PLAYER_HEIGHT{32.f};
-    static constexpr int SECTION1_WIDTH{WINDOW_WIDTH - WINDOW_WIDTH / 4};
-    static constexpr int SECTION1_HEIGHT{WINDOW_HEIGHT - WINDOW_HEIGHT / 4};
-    static constexpr int SECTION2_WIDTH{WINDOW_WIDTH / 4};
-    static constexpr int SECTION2_HEIGHT{WINDOW_HEIGHT - WINDOW_HEIGHT / 4};
-    static constexpr int SECTION3_WIDTH{WINDOW_WIDTH};
-    static constexpr int SECTION3_HEIGHT{WINDOW_HEIGHT / 4};
-    static constexpr int SECTION4_WIDTH{WINDOW_WIDTH / 4};
-    static constexpr int SECTION4_HEIGHT{WINDOW_HEIGHT / 4};
+    static constexpr int SECTION1_WIDTH{VIRTUAL_WIDTH - VIRTUAL_WIDTH / 4};
+    static constexpr int SECTION1_HEIGHT{VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 4};
+    static constexpr int SECTION2_WIDTH{VIRTUAL_WIDTH / 4};
+    static constexpr int SECTION2_HEIGHT{VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 4};
+    static constexpr int SECTION3_WIDTH{VIRTUAL_WIDTH};
+    static constexpr int SECTION3_HEIGHT{VIRTUAL_HEIGHT / 4};
+    static constexpr int SECTION4_WIDTH{VIRTUAL_WIDTH / 4};
+    static constexpr int SECTION4_HEIGHT{VIRTUAL_HEIGHT / 4};
 
     static std::unordered_map<std::string, sf::Texture> textures;
 

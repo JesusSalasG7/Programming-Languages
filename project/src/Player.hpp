@@ -11,7 +11,7 @@ public:
 
     Player& operator = (Player&) = delete;
 
-    void render(sf::RenderWindow& window) const noexcept;
+    void render(sf::RenderTarget& target) const noexcept;
 
 private:
     float x;

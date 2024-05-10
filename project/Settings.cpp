@@ -1,6 +1,6 @@
 #include <stdexcept>
 
-#include "Settings.hpp"
+#include <Settings.hpp>
 
 const fs::path Settings::GRAPHICS_PATH{"graphics"};
 

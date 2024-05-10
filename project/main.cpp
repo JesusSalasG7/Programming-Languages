@@ -7,6 +7,16 @@ int main()
     Settings::init();
 
     sf::RenderWindow window{sf::VideoMode{Settings::WINDOW_WIDTH, Settings::WINDOW_HEIGHT}, "languages", sf::Style::Close};
+    sf::RenderTexture render_texture{};
+    render_texture.create(Settings::VIRTUAL_WIDTH, Settings::VIRTUAL_HEIGHT);
+
+    sf::Vector2f scale_factors{
+        float(Settings::WINDOW_WIDTH) / float(Settings::VIRTUAL_WIDTH), 
+        float(Settings::WINDOW_HEIGHT) / float(Settings::VIRTUAL_HEIGHT)
+    };
+
+    sf::Sprite render_sprite{render_texture.getTexture()};
+    render_sprite.setScale(scale_factors);
 
     // Definir los rectángulos para las tres secciones
     sf::RectangleShape section1(sf::Vector2f(Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT));
@@ -28,7 +38,7 @@ int main()
 
     // Define al personaje principal
     Player player{
-        Settings::WINDOW_WIDTH / 2 - Settings::PLAYER_WIDTH / 2, Settings::WINDOW_HEIGHT / 2 - Settings::PLAYER_HEIGHT / 2,
+        Settings::VIRTUAL_WIDTH / 2 - Settings::PLAYER_WIDTH / 2, Settings::VIRTUAL_HEIGHT / 2 - Settings::PLAYER_HEIGHT / 2,
         Settings::PLAYER_WIDTH, Settings::PLAYER_HEIGHT
     };
 
@@ -44,15 +54,15 @@ int main()
             }
         }
 
-        window.clear(sf::Color::Black);
+        render_texture.clear(sf::Color::Black);
+        render_texture.draw(section1);
+        render_texture.draw(section2);
+        render_texture.draw(section3);
+        render_texture.draw(section4);
+        player.render(render_texture);
+        render_texture.display();
 
-        window.draw(section1);
-        window.draw(section2);
-        window.draw(section3);
-        window.draw(section4);
-
-        player.render(window);
-
+        window.draw(render_sprite);
         window.display();
     }
 
