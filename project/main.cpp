@@ -1,5 +1,6 @@
 #include <SFML/Window.hpp>
-#include "Settings.hpp"
+#include <SFML/Graphics.hpp>
+#include <Settings.hpp>
 
 int main()
 {   
