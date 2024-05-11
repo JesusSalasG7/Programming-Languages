@@ -7,6 +7,11 @@ Player::Player(float _x, float _y, float w, float h) noexcept
     sprite.setPosition(x, y);
 }
 
+void Player::update(float dt) noexcept
+{
+
+}
+
 void Player::render(sf::RenderTarget& target) const noexcept
 {
     target.draw(sprite);
