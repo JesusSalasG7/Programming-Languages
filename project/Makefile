@@ -4,7 +4,7 @@ INCLUDE = -I.
 
 BUILD_DIR = build
 
-OBJ_RULES = Settings.o Game.o Player.o World.o
+OBJ_RULES = Settings.o Game.o Player.o World.o ControlPanel.o Instructions.o Play.o
 
 LIBS = -lsfml-graphics -lsfml-window -lsfml-system $(BUILD_DIR)/*.o
 
@@ -22,7 +22,15 @@ Player.o: $(BUILD_DIR) src/Player.hpp src/Player.cpp
 
 World.o: $(BUILD_DIR) src/World.hpp src/World.cpp
 	$(CXX) -c $(INCLUDE) src/World.cpp -o $(BUILD_DIR)/$@
+
+ControlPanel.o: $(BUILD_DIR) src/ControlPanel.hpp src/ControlPanel.cpp
+	$(CXX) -c $(INCLUDE) src/ControlPanel.cpp -o $(BUILD_DIR)/$@
+
+Instructions.o: $(BUILD_DIR) src/Instructions.hpp src/Instructions.cpp
+	$(CXX) -c $(INCLUDE) src/Instructions.cpp -o $(BUILD_DIR)/$@
 	
+Play.o: $(BUILD_DIR) src/Play.hpp src/Play.cpp
+	$(CXX) -c $(INCLUDE) src/Play.cpp -o $(BUILD_DIR)/$@
 
 $(BUILD_DIR):
 	mkdir -p $@

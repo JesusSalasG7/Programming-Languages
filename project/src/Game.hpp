@@ -4,6 +4,9 @@
 
 #include <src/Player.hpp>
 #include <src/World.hpp>
+#include <src/ControlPanel.hpp>
+#include <src/Instructions.hpp>
+#include <src/Play.hpp>
 
 class Game
 {
@@ -25,11 +28,10 @@ private:
     sf::RenderTexture render_texture;
     sf::Sprite render_sprite;
 
-    sf::RectangleShape section2;
-    sf::RectangleShape section3;
-    sf::RectangleShape section4;
-    
     Player player;
     World world;
-    
+    ControlPanel control_panel;
+    Instructions instructions;
+    Play play;
+
 };
