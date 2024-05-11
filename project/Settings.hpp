@@ -22,9 +22,9 @@ struct Settings
     static constexpr int SECTION1_HEIGHT{VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 4};
     static constexpr int SECTION2_WIDTH{VIRTUAL_WIDTH / 4};
     static constexpr int SECTION2_HEIGHT{VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 4};
-    static constexpr int SECTION3_WIDTH{VIRTUAL_WIDTH};
+    static constexpr int SECTION3_WIDTH{SECTION1_WIDTH};
     static constexpr int SECTION3_HEIGHT{VIRTUAL_HEIGHT / 4};
-    static constexpr int SECTION4_WIDTH{VIRTUAL_WIDTH / 4};
+    static constexpr int SECTION4_WIDTH{SECTION2_WIDTH};
     static constexpr int SECTION4_HEIGHT{VIRTUAL_HEIGHT / 4};
 
     static std::unordered_map<std::string, sf::Texture> textures;
