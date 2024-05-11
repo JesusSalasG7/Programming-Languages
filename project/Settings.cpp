@@ -22,4 +22,12 @@ void Settings::load_textures()
 
     Settings::textures["player"] = texture;
 
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "PlayButton.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/PlayButton.png"};
+    }
+
+    Settings::textures["PlayButton"] = texture;
+
+
 }

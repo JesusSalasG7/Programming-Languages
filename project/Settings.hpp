@@ -17,6 +17,8 @@ struct Settings
     static constexpr int VIRTUAL_WIDTH{512};
     static constexpr int VIRTUAL_HEIGHT{288};
     static constexpr float PLAYER_WIDTH{32.f};
+    static constexpr float PLAYBUTTON_HEIGHT{88.f};
+    static constexpr float PLAYBUTTON_WIDTH{130.f};
     static constexpr float PLAYER_HEIGHT{32.f};
     static constexpr int SECTION1_WIDTH{VIRTUAL_WIDTH - VIRTUAL_WIDTH / 4};
     static constexpr int SECTION1_HEIGHT{VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 4};
