@@ -16,6 +16,6 @@ public:
     void render(sf::RenderTarget& target) const noexcept;
 
 private:
-    sf::RectangleShape section1;
+    sf::RectangleShape section;
 
 };
