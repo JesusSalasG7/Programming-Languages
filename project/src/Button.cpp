@@ -12,9 +12,10 @@ void Button::update(float dt) noexcept
 
 }
 
-void Button::on_click() noexcept
+bool Button::on_click(sf::Vector2i mouse_posicion) noexcept
 {
-
+    return mouse_posicion.x >= this->x && mouse_posicion.x <= this->x + this->width  && 
+    mouse_posicion.y >= this->y && mouse_posicion.y <= this->y + this->height;
 }
 
 void Button::render(sf::RenderTarget& target) const noexcept

@@ -21,6 +21,8 @@ public:
 
     void update(float dt) noexcept;
 
+    void on_click(sf::Vector2i mouse_posicion) noexcept;
+
     void render() noexcept;
 
 private:

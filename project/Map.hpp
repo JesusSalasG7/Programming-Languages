@@ -11,6 +11,7 @@ public:
     std::pair<int, int> get_begin() const;
     std::pair<int, int> get_end() const;
     bool is_obstacle(int i,int j) const;
+    bool is_goal(int i, int j) const;
     
 private:
     static constexpr int Rows = 20;

@@ -12,7 +12,7 @@ struct Environment
 class Statement
 {
 public:
-    virtual void execute(Environment &) const = 0;
+    virtual bool execute(Environment &) const = 0;
     virtual ~Statement()
     {
 
@@ -22,26 +22,26 @@ public:
 class TurnLeft : public Statement
 {
 public:
-    void execute(Environment &) const override;
+    bool execute(Environment &) const override;
 };
 
 class TurnRight : public Statement
 {
 public:
-    void execute(Environment &) const override;
+    bool execute(Environment &) const override;
 };
 
 class Move : public Statement
 {
 public:
-    void execute(Environment &) const override;
+    bool execute(Environment &) const override;
 };
 
 class Loop : public Statement
 {
 public:
     Loop(int times);
-    void execute(Environment &) const override;
+    bool execute(Environment &) const override;
     void add(std::shared_ptr<Statement>);
 private:
     std::list< std::shared_ptr<Statement>> repeat;
@@ -51,5 +51,5 @@ private:
 class Finish : public Statement
 {
 public:
-    void execute(Environment &) const override;
+    bool execute(Environment &) const override;
 };

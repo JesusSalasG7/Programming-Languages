@@ -22,6 +22,11 @@ bool Map::is_obstacle(int i,int j) const
     return Map::board[i][j] == '1';
 }
 
+bool Map::is_goal(int i, int j) const
+{
+    return Map::board[i][j] == '9';
+}
+
 std::pair<int, int> Map::get_begin() const
 {
     int row = 0;

@@ -40,6 +40,12 @@ void Game::update(float dt) noexcept
     play.update(dt);
 }
 
+void Game::on_click(sf::Vector2i mouse_posicion) noexcept
+{
+    control_panel.on_click(mouse_posicion);
+
+}
+
 void Game::render() noexcept
 {
     render_texture.clear(sf::Color::Black);

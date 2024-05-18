@@ -5,29 +5,36 @@ Statement::~Statement()
 
 }
 
-void TurnLeft::execute(Environment &e) const
+bool TurnLeft::execute(Environment &e) const
 {
     e.character.turn_left();
+
+    return true;
 }
 
-void TurnRight::execute(Environment &e) const
+bool TurnRight::execute(Environment &e) const
 {
     e.character.turn_right();
+
+    return true;
 }
 
-void Move::execute(Environment &e) const
+bool Move::execute(Environment &e) const
 {
     bool obstacle = e.map.is_obstacle(e.character.get_next_i(), e.character.get_next_j());
     
     if (!obstacle)
     {
         e.character.move();
+        return true;
     } 
+
+    return false;
 }
 
-void Finish::execute(Environment &e) const
+bool Finish::execute(Environment &e) const
 {
-    //nada
+    return e.map.is_goal(e.character.get_next_i(), e.character.get_next_j());
 }
 
 Loop::Loop (int _times)
@@ -36,16 +43,21 @@ Loop::Loop (int _times)
 
 }
 
-void Loop::execute(Environment &e) const
+bool Loop::execute(Environment &e) const
 {
     for(int i = 0; i < times; ++i)
     {
         for (auto s : repeat)
         {
-            s->execute(e);
-        }
-        
+            if (!s->execute(e))
+            {
+                return false;
+            }
+            
+        }   
     }
+
+    return true;
 }
 
 void Loop::add(std::shared_ptr<Statement> s) 

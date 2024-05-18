@@ -11,31 +11,37 @@ ControlPanel::ControlPanel() noexcept
     button2{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "move_left"
     },
     button3{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "move_forward"
     },
     button4{
         0, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "move_back"
     },
     button5{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "ready_flag"
     },
     button6{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "ready_end"
     }
 {
      section.setPosition(0, Settings::SECTION1_HEIGHT); 
      section.setFillColor(sf::Color::Blue);
+     buttons.push_back(button1);
+     buttons.push_back(button2);
+     buttons.push_back(button3);
+     buttons.push_back(button4);
+     buttons.push_back(button5);
+     buttons.push_back(button6);
 
 }
 
@@ -44,13 +50,24 @@ void ControlPanel::update(float dt) noexcept
 
 }
 
+void ControlPanel::on_click(sf::Vector2i mouse_posicion) noexcept
+{
+    for (Button b : buttons)
+    {
+        if (b.on_click(mouse_posicion))
+        {
+            // botón 
+        }
+    }
+
+}
+
 void ControlPanel::render(sf::RenderTarget& target) const noexcept
 {
     target.draw(section);
-    button1.render(target);
-    button2.render(target);
-    button3.render(target);
-    button4.render(target);
-    button5.render(target);
-    button6.render(target);
+    for (Button b : buttons)
+    {
+        b.render(target);
+    }
+    
 }
