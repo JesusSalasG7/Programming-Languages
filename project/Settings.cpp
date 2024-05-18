@@ -29,19 +29,19 @@ void Settings::load_textures()
 
     Settings::textures["PlayButton"] = texture;
 
-    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_right.png"))
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "turn_right.png"))
     {
-        throw std::runtime_error{"Error loading texture graphics/move_right.png"};
+        throw std::runtime_error{"Error loading texture graphics/turn_right.png"};
     }
 
-    Settings::textures["move_right"] = texture;
+    Settings::textures["turn_right"] = texture;
 
-    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_left.png"))
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "turn_left.png"))
     {
-        throw std::runtime_error{"Error loading texture graphics/move_left.png"};
+        throw std::runtime_error{"Error loading texture graphics/turn_left.png"};
     }
 
-    Settings::textures["move_left"] = texture;
+    Settings::textures["turn_left"] = texture;
 
     if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_forward.png"))
     {
