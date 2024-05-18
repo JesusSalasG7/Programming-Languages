@@ -11,27 +11,27 @@ ControlPanel::ControlPanel() noexcept
     button2{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "move_left"
     },
     button3{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "move_forward"
     },
     button4{
         0, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "move_back"
     },
     button5{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "ready_flag"
     },
     button6{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "ready_end"
     }
 {
      section.setPosition(0, Settings::SECTION1_HEIGHT); 

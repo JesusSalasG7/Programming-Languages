@@ -36,5 +36,38 @@ void Settings::load_textures()
 
     Settings::textures["move_right"] = texture;
 
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_left.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/move_left.png"};
+    }
 
+    Settings::textures["move_left"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_forward.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/move_forward.png"};
+    }
+
+    Settings::textures["move_forward"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_back.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/move_back.png"};
+    }
+
+    Settings::textures["move_back"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "ready_flag.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/ready_flag.png"};
+    }
+
+    Settings::textures["ready_flag"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "repeat_end.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/repeat_end.png"};
+    }
+
+    Settings::textures["repeat_end"] = texture;
 }
