@@ -5,7 +5,8 @@ Play::Play() noexcept
     : section{sf::Vector2f(Settings::SECTION4_WIDTH, Settings::SECTION4_HEIGHT)},
     button{
         Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT,
-        Settings::PLAYBUTTON_WIDTH, Settings::PLAYBUTTON_HEIGHT
+        Settings::PLAYBUTTON_WIDTH, Settings::PLAYBUTTON_HEIGHT,
+        "PlayButton"
       }
 {
      section.setPosition(Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT); 

@@ -5,7 +5,7 @@
 class Button
 {
 public:
-    Button(float _x, float _y, float w, float h) noexcept;
+    Button(float _x, float _y, float w, float h, sf::String name_file) noexcept;
 
     Button(const Button&) = delete;
 

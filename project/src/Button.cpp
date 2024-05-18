@@ -1,8 +1,8 @@
 #include <Settings.hpp>
 #include <src/Button.hpp>
 
-Button::Button(float _x, float _y, float w, float h) noexcept
-    : x{_x}, y{_y}, width{w}, height{h}, sprite{Settings::textures["PlayButton"]}
+Button::Button(float _x, float _y, float w, float h, sf::String name_file) noexcept
+    : x{_x}, y{_y}, width{w}, height{h}, sprite{Settings::textures[name_file]}
 {
     sprite.setPosition(x, y);
 }
