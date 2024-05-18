@@ -29,5 +29,12 @@ void Settings::load_textures()
 
     Settings::textures["PlayButton"] = texture;
 
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "move_right.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/move_right.png"};
+    }
+
+    Settings::textures["move_right"] = texture;
+
 
 }
