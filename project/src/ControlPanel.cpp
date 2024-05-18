@@ -50,6 +50,18 @@ void ControlPanel::update(float dt) noexcept
 
 }
 
+void ControlPanel::on_click(sf::Vector2i mouse_posicion) noexcept
+{
+    for (Button b : buttons)
+    {
+        if (b.on_click(mouse_posicion))
+        {
+            // botón 
+        }
+    }
+
+}
+
 void ControlPanel::render(sf::RenderTarget& target) const noexcept
 {
     target.draw(section);
