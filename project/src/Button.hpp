@@ -2,16 +2,18 @@
 
 #include <SFML/Graphics.hpp>
 
-class PlayButton
+class Button
 {
 public:
-    PlayButton(float _x, float _y, float w, float h) noexcept;
+    Button(float _x, float _y, float w, float h) noexcept;
 
-    PlayButton(const PlayButton&) = delete;
+    Button(const Button&) = delete;
 
-    PlayButton& operator = (PlayButton&) = delete;
+    Button& operator = (Button&) = delete;
 
     void update(float dt) noexcept;
+
+    void on_click() noexcept;
 
     void render(sf::RenderTarget& target) const noexcept;
 

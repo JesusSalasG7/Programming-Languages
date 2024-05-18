@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <src/PlayButton.hpp>
+#include <src/Button.hpp>
 
 class Play
 {
@@ -16,7 +16,7 @@ public:
 
     void render(sf::RenderTarget& target) const noexcept;
 
-    PlayButton button;
+    Button button;
 
 private:
     sf::RectangleShape section;
