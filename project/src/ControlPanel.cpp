@@ -6,12 +6,12 @@ ControlPanel::ControlPanel() noexcept
     button1{
         0, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_right"
+        "turn_right"
     },
     button2{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_left"
+        "turn_left"
     },
     button3{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT,
