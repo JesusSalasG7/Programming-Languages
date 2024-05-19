@@ -37,7 +37,7 @@ void Game::update(float dt, const sf::Vector2i mouse_posicion) noexcept
     world.update(dt);
     control_panel.update(dt, mouse_posicion);
     instructions.update(dt);
-    play.update(dt);
+    play.update(dt, mouse_posicion);
 }
 
 void Game::render() noexcept

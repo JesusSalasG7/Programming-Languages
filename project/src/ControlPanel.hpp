@@ -19,6 +19,6 @@ public:
 
 private:
     sf::RectangleShape section;
-    Button button1;// button2, button3, button4, button5, button6;
+    Button button1, button2, button3, button4, button5, button6;
     std::list<Button> buttons;
 };

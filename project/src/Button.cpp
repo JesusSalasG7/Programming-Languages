@@ -30,14 +30,12 @@ void Button::update(float dt, const sf::Vector2i mouse_posicion) noexcept
 
     if (shape.getGlobalBounds().contains(mouse_posicion.x, mouse_posicion.y)) 
     {
-        std::cout << mouse_posicion.x << ", " << mouse_posicion.y << std::endl;
         this->button_state = BTN_HOVER;
         
 
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
             this->button_state = BTN_ACTIVE;
-            std::cout << "click" << std::endl;
         }
     }
     else 
