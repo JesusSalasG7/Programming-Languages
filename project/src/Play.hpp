@@ -16,8 +16,6 @@ public:
 
     void render(sf::RenderTarget& target) const noexcept;
 
-    Button button;
-
 private:
     sf::RectangleShape section;
 
