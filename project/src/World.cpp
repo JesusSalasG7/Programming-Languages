@@ -4,7 +4,11 @@
 World::World() noexcept
     : section{sf::Vector2f(Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT)},
     ROWS{6},
-    COLS{10}
+    COLS{10},
+    player{
+        32, 32,
+        Settings::PLAYER_WIDTH, Settings::PLAYER_HEIGHT
+      }
 {
      section.setPosition(0, 0);
      section.setFillColor(sf::Color::Red);
@@ -19,7 +23,7 @@ World::World() noexcept
 
 void World::update(float dt) noexcept
 {
-
+    player.update(dt);
 }
 
 void World::render(sf::RenderTarget& target) const noexcept
@@ -47,6 +51,8 @@ void World::render(sf::RenderTarget& target) const noexcept
                 sprite.setPosition(x * Settings::TILESIZE, y * Settings::TILESIZE);
                 target.draw(sprite);
             }
+
         }
     }
+    player.render(target);
 }

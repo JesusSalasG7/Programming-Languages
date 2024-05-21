@@ -5,10 +5,6 @@ Game::Game()
     : render_window{sf::VideoMode{Settings::WINDOW_WIDTH, Settings::WINDOW_HEIGHT}, "Lenguage", sf::Style::Close},
       render_texture{},
       render_sprite{},
-      player{
-        Settings::VIRTUAL_WIDTH / 2 - Settings::PLAYER_WIDTH / 2, Settings::VIRTUAL_HEIGHT / 2 - Settings::PLAYER_HEIGHT / 2,
-        Settings::PLAYER_WIDTH, Settings::PLAYER_HEIGHT
-      },
       world{},
       control_panel{},
       instructions{},
@@ -33,7 +29,6 @@ sf::RenderWindow& Game::get_window() noexcept
 
 void Game::update(float dt, const sf::Vector2i mouse_posicion) noexcept
 {
-    player.update(dt);
     world.update(dt);
     control_panel.update(dt, mouse_posicion);
     instructions.update(dt);
@@ -44,7 +39,6 @@ void Game::render() noexcept
 {
     render_texture.clear(sf::Color::Black);
     world.render(render_texture);
-    player.render(render_texture);
     control_panel.render(render_texture);
     instructions.render(render_texture);
     play.render(render_texture);
