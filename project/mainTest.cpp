@@ -22,6 +22,7 @@ int main(int argc, char const *argv[])
 
     Environment env{ss, 0, 1, 1, 0};
 
+
     std::list<std::shared_ptr<Statement>> program1{};
 
     program1.push_back(std::make_shared<Move>());
@@ -40,7 +41,7 @@ int main(int argc, char const *argv[])
     
     for (auto stmt : program1)
     {
-        assert(stmt->execute(env));
+        assert(stmt->execute(env));    
     }
 
     /*

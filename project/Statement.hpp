@@ -4,6 +4,7 @@
 #include "Character.hpp"
 #include <list>
 #include <memory>
+#include <stack>
 
 class Expression;
 
@@ -46,7 +47,7 @@ public:
 class Loop : public Statement
 {
 public:
-    Loop(int times);
+    Loop(int times, const std::list< std::shared_ptr<Statement>>& _repeat);
     bool execute(Environment &) override;
     void add(std::shared_ptr<Statement>);
     int get_current_step() const;
@@ -73,3 +74,6 @@ private:
     std::list<std::shared_ptr<Statement>> then_block;
     std::list<std::shared_ptr<Statement>> else_block;
 };
+
+using Scope = std::list<std::shared_ptr<Statement>>;
+using Program = std::stack<Scope>;

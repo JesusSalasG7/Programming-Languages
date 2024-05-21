@@ -7,7 +7,10 @@ Play::Play() noexcept
     button{
         Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT + 20,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        Settings::font, "Play", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "Play", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) {
+            
+        }
     }
 {
      section.setPosition(Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT); 
