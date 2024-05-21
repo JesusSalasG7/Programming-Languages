@@ -17,5 +17,8 @@ public:
 
 private:
     sf::RectangleShape section;
+    std::vector<std::vector<int>> map;
+    const int ROWS;
+    const int COLS;
 
 };

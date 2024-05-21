@@ -31,6 +31,9 @@ struct Settings
     static constexpr int SECTION3_HEIGHT{VIRTUAL_HEIGHT / 4};
     static constexpr int SECTION4_WIDTH{SECTION2_WIDTH};
     static constexpr int SECTION4_HEIGHT{VIRTUAL_HEIGHT / 4};
+    static constexpr int CAMINO{0};
+    static constexpr int MURO{1};
+    static constexpr int TILESIZE{32};
 
     static std::unordered_map<std::string, sf::Texture> textures;
     static sf::Font font;
