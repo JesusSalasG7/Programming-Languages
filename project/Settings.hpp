@@ -33,6 +33,7 @@ struct Settings
     static constexpr int SECTION4_HEIGHT{VIRTUAL_HEIGHT / 4};
     static constexpr int CAMINO{0};
     static constexpr int MURO{1};
+    static constexpr int META{9}
     static constexpr int TILESIZE{32};
 
     static std::unordered_map<std::string, sf::Texture> textures;
