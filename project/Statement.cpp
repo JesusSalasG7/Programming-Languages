@@ -39,8 +39,8 @@ bool Finish::execute(Environment &e)
     return e.map.is_goal(e.character.get_i(), e.character.get_j());
 }
 
-Loop::Loop (int _times)
-    : times{_times}
+Loop::Loop (int _times, const std::list< std::shared_ptr<Statement>>& _repeat)
+    : times{_times}, repeat{_repeat}
 {
 
 }

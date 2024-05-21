@@ -8,7 +8,7 @@ OBJ_RULES = Settings.o Game.o Player.o World.o ControlPanel.o Instructions.o Pla
 
 LIBS = -lsfml-graphics -lsfml-window -lsfml-system $(BUILD_DIR)/*.o
 
-mainTest: $(BUILD_DIR) $(OBJ_RULES) mainTest.cpp
+main: $(BUILD_DIR) $(OBJ_RULES) main.cpp
 	$(CXX) $(INCLUDE) $@.cpp -o $@ $(LIBS)
 
 Settings.o: $(BUILD_DIR) Settings.hpp Settings.cpp
@@ -55,4 +55,4 @@ $(BUILD_DIR):
 
 .PHONY:
 clean:
-	$(RM) $(BUILD_DIR)/*.o mainTest
+	$(RM) $(BUILD_DIR)/*.o main

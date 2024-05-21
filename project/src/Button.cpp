@@ -1,8 +1,12 @@
 #include <Settings.hpp>
 #include <src/Button.hpp>
+#include <src/ControlPanel.hpp>
 #include <iostream>
 
-Button::Button(float x, float y, float width, float height, sf::Font& font, std::string text, sf::Color idle_color, sf::Color hover_color, sf::Color active_color) noexcept
+Button::Button(float x, float y, float width, float height,
+               sf::Font& font, std::string text,
+               sf::Color idle_color, sf::Color hover_color, sf::Color active_color,
+               std::function<void(Program&)>&& _on_click_fct) noexcept
 {
     button_state = BTN_IDLE;
 
@@ -23,6 +27,8 @@ Button::Button(float x, float y, float width, float height, sf::Font& font, std:
     this->active_color = active_color;
 
     shape.setFillColor(this->idle_color);
+
+    this->on_click_fct = _on_click_fct;
 }
 
 void Button::update(float dt, const sf::Vector2i mouse_posicion) noexcept
@@ -36,6 +42,16 @@ void Button::update(float dt, const sf::Vector2i mouse_posicion) noexcept
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
             this->button_state = BTN_ACTIVE;
+
+            if (!clicked)
+            {
+                this->on_click(Global::program);
+                clicked = true;
+            }
+        }
+        else
+        {
+            clicked = false;
         }
     }
     else 
@@ -63,4 +79,9 @@ void Button::render(sf::RenderTarget& target) const noexcept
 {
     target.draw(shape);
     target.draw(text);
+}
+
+void Button::on_click(Program& program) noexcept
+{
+    this->on_click_fct(program);
 }

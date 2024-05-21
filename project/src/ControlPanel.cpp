@@ -1,38 +1,61 @@
 #include <Settings.hpp>
 #include <src/ControlPanel.hpp>
 
+Program Global::program{{Scope{}}};
+
 ControlPanel::ControlPanel() noexcept
     : section{sf::Vector2f(Settings::SECTION3_WIDTH, Settings::SECTION3_HEIGHT)},
     button1{
         0, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        Settings::font, "turn_right", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "turn_right", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) { 
+            p.top().push_back(std::make_shared<TurnRight>()); }
     },
 
     button2{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        Settings::font, "turn_left", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "turn_left", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) { 
+            p.top().push_back(std::make_shared<TurnLeft>()); 
+            } 
     },
     button3{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        Settings::font, "move_forward", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "move", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) { 
+            p.top().push_back(std::make_shared<Move>()); 
+            } 
     },
     button4{
         0, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        Settings::font, "repeat_n_times", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "repeat_n_times", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) { 
+            p.push(Scope{}); 
+            } 
     },
     button5{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-         Settings::font,"repeat_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+         Settings::font,"repeat_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) {
+            if(p.size() == 1){
+                    return;
+            }
+            auto scope = p.top();
+            p.pop();
+            p.top().push_back(std::make_shared<Loop>(10, scope));
+        } 
     },
     button6{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        Settings::font, "ready_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "ready_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
+        [] (Program& p) { 
+            p.top().push_back(std::make_shared<Finish>()); } 
     }
 {
      section.setPosition(0, Settings::SECTION1_HEIGHT); 

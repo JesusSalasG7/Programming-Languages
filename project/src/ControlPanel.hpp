@@ -4,6 +4,10 @@
 #include <src/Button.hpp>
 #include <list>
 
+struct Global {
+    static Program program;
+};
+
 class ControlPanel
 {
 public:
