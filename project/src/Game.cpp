@@ -31,19 +31,13 @@ sf::RenderWindow& Game::get_window() noexcept
     return render_window;
 }
 
-void Game::update(float dt) noexcept
+void Game::update(float dt, const sf::Vector2i mouse_posicion) noexcept
 {
     player.update(dt);
     world.update(dt);
-    control_panel.update(dt);
+    control_panel.update(dt, mouse_posicion);
     instructions.update(dt);
-    play.update(dt);
-}
-
-void Game::on_click(sf::Vector2i mouse_posicion) noexcept
-{
-    control_panel.on_click(mouse_posicion);
-
+    play.update(dt, mouse_posicion);
 }
 
 void Game::render() noexcept

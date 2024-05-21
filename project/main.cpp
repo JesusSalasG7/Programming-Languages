@@ -22,15 +22,9 @@ int main()
             {
                 game.get_window().close();
             }
-
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                sf::Vector2i localPosition = sf::Mouse::getPosition(game.get_window());
-                game.on_click(localPosition);
-            }
         }
 
-        game.update(dt.asSeconds());
+        game.update(dt.asSeconds(), sf::Mouse::getPosition(game.get_window()));
         game.render();
 
         dt = clock.restart();

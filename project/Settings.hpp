@@ -11,6 +11,7 @@ namespace fs = std::filesystem;
 struct Settings
 {
     static const fs::path GRAPHICS_PATH;
+    static const fs::path FONTS_PATH;
 
     static constexpr int WINDOW_WIDTH{1280};
     static constexpr int WINDOW_HEIGHT{740};
@@ -32,8 +33,10 @@ struct Settings
     static constexpr int SECTION4_HEIGHT{VIRTUAL_HEIGHT / 4};
 
     static std::unordered_map<std::string, sf::Texture> textures;
+    static sf::Font font;
 
     static void init();
     static void load_textures();
+    static void load_font();
 };
 
