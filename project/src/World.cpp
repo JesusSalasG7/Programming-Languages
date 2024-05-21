@@ -6,7 +6,7 @@ World::World() noexcept
     ROWS{6},
     COLS{10},
     player{
-        32, 32,
+        Settings::TILESIZE * 1, Settings::TILESIZE * 1,
         Settings::PLAYER_WIDTH, Settings::PLAYER_HEIGHT
       }
 {
