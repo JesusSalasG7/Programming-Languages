@@ -4,11 +4,11 @@ INCLUDE = -I.
 
 BUILD_DIR = build
 
-OBJ_RULES = Settings.o Game.o Player.o World.o ControlPanel.o Instructions.o Play.o Button.o
+OBJ_RULES = Settings.o Game.o Player.o World.o ControlPanel.o Instructions.o Play.o Button.o Map.o Character.o Expression.o Statement.o
 
 LIBS = -lsfml-graphics -lsfml-window -lsfml-system $(BUILD_DIR)/*.o
 
-main: $(BUILD_DIR) $(OBJ_RULES) main.cpp
+mainTest: $(BUILD_DIR) $(OBJ_RULES) mainTest.cpp
 	$(CXX) $(INCLUDE) $@.cpp -o $@ $(LIBS)
 
 Settings.o: $(BUILD_DIR) Settings.hpp Settings.cpp
@@ -32,13 +32,27 @@ Instructions.o: $(BUILD_DIR) src/Instructions.hpp src/Instructions.cpp
 Play.o: $(BUILD_DIR) src/Play.hpp src/Play.cpp
 	$(CXX) -c $(INCLUDE) src/Play.cpp -o $(BUILD_DIR)/$@
 
-
 Button.o: $(BUILD_DIR) src/Button.hpp src/Button.cpp
 	$(CXX) -c $(INCLUDE) src/Button.cpp -o $(BUILD_DIR)/$@
+
+
+Character.o: $(BUILD_DIR) Character.hpp Character.cpp  
+	$(CXX) -c $(INCLUDE) Character.cpp -o $(BUILD_DIR)/$@
+
+
+Map.o: $(BUILD_DIR) Map.hpp Map.cpp  
+	$(CXX) -c $(INCLUDE) Map.cpp -o $(BUILD_DIR)/$@
+
+
+Statement.o: $(BUILD_DIR) Statement.hpp Statement.cpp  
+	$(CXX) -c $(INCLUDE) Statement.cpp -o $(BUILD_DIR)/$@
+
+Expression.o: $(BUILD_DIR) Expression.hpp Expression.cpp  
+	$(CXX) -c $(INCLUDE) Expression.cpp -o $(BUILD_DIR)/$@
 
 $(BUILD_DIR):
 	mkdir -p $@
 
 .PHONY:
 clean:
-	$(RM) $(BUILD_DIR)/*.o main
+	$(RM) $(BUILD_DIR)/*.o mainTest
