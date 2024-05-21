@@ -3,12 +3,15 @@
 #include <Settings.hpp>
 
 const fs::path Settings::GRAPHICS_PATH{"graphics"};
+const fs::path Settings::FONTS_PATH{"fonts"};
 
 std::unordered_map<std::string, sf::Texture> Settings::textures{};
+sf::Font Settings::font;
 
 void Settings::init()
 {
     Settings::load_textures();
+    Settings::load_font();
 }
 
 void Settings::load_textures()
@@ -70,4 +73,12 @@ void Settings::load_textures()
     }
 
     Settings::textures["repeat_end"] = texture;
+}
+
+void Settings::load_font()
+{
+    if (!font.loadFromFile(Settings::FONTS_PATH / "font.ttf"))
+    {
+        throw std::runtime_error{"Error loading font"};
+    } 
 }

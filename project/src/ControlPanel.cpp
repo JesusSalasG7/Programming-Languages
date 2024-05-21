@@ -6,32 +6,33 @@ ControlPanel::ControlPanel() noexcept
     button1{
         0, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "turn_right"
+        Settings::font, "turn_right", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
+
     button2{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "turn_left"
+        Settings::font, "turn_left", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button3{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_forward"
+        Settings::font, "move_forward", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button4{
         0, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "move_back"
+        Settings::font, "repeat_n_times", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button5{
         Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "ready_flag"
+         Settings::font,"repeat_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button6{
         Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
-        "ready_end"
+        Settings::font, "ready_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     }
 {
      section.setPosition(0, Settings::SECTION1_HEIGHT); 
@@ -45,29 +46,20 @@ ControlPanel::ControlPanel() noexcept
 
 }
 
-void ControlPanel::update(float dt) noexcept
+void ControlPanel::update(float dt, const sf::Vector2i mouse_posicion) noexcept
 {
-
-}
-
-void ControlPanel::on_click(sf::Vector2i mouse_posicion) noexcept
-{
-    for (Button b : buttons)
+    for (std::list<Button>::iterator i = buttons.begin(); i != buttons.end(); ++i)
     {
-        if (b.on_click(mouse_posicion))
-        {
-            // botón 
-        }
+        i->update(dt, mouse_posicion);
     }
-
 }
 
 void ControlPanel::render(sf::RenderTarget& target) const noexcept
 {
     target.draw(section);
+    
     for (Button b : buttons)
     {
         b.render(target);
     }
-    
 }

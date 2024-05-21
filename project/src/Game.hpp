@@ -19,9 +19,7 @@ public:
 
     sf::RenderWindow& get_window() noexcept;
 
-    void update(float dt) noexcept;
-
-    void on_click(sf::Vector2i mouse_posicion) noexcept;
+    void update(float dt, const sf::Vector2i mouse_posicion) noexcept;
 
     void render() noexcept;
 
