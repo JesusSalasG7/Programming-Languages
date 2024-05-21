@@ -87,6 +87,14 @@ void Settings::load_textures()
     }
 
     Settings::textures["camino"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "goal.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/goal.png"};
+    }
+
+    Settings::textures["meta"] = texture;
+
 }
 
 void Settings::load_font()

@@ -3,14 +3,17 @@
 
 World::World() noexcept
     : section{sf::Vector2f(Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT)},
-    ROWS{3},
-    COLS{3}
+    ROWS{6},
+    COLS{10}
 {
      section.setPosition(0, 0);
      section.setFillColor(sf::Color::Red);
-     map = {{1, 1, 1},
-            {1, 0, 1},
-            {1, 0, 0}};
+     map = {{1, 1, 1, 0, 1, 1, 1, 0, 1, 1},
+            {1, 0, 1, 0, 1, 0, 0, 0, 1, 0},
+            {1, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+            {1, 0, 1, 0, 1, 0, 0, 0, 1, 1},
+            {0, 1, 0, 0, 1, 0, 0, 9, 1, 1},
+            {1, 0, 0, 0, 1, 0, 0, 0, 0, 0}};
 
 }
 
@@ -28,16 +31,22 @@ void World::render(sf::RenderTarget& target) const noexcept
         for (int x = 0; x < COLS; x++)
         {
             sf::Sprite sprite;
-            if (map[y][x] == Settings::CAMINO)
-            {
-                sprite.setTexture(Settings::textures["camino"]);
-            }
-            else if (map[y][x] == Settings::MURO)
-            {
-                sprite.setTexture(Settings::textures["muro"]);
-            }
+            sprite.setTexture(Settings::textures["camino"]);
             sprite.setPosition(x * Settings::TILESIZE, y * Settings::TILESIZE);
             target.draw(sprite);
+
+            if (map[y][x] == Settings::MURO)
+            {
+                sprite.setTexture(Settings::textures["muro"]);
+                sprite.setPosition(x * Settings::TILESIZE, y * Settings::TILESIZE);
+                target.draw(sprite);
+            }
+            else if (map[y][x] == Settings::META)
+            {
+                sprite.setTexture(Settings::textures["meta"]);
+                sprite.setPosition(x * Settings::TILESIZE, y * Settings::TILESIZE);
+                target.draw(sprite);
+            }
         }
     }
 }

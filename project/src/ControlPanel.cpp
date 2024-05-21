@@ -5,33 +5,33 @@ ControlPanel::ControlPanel() noexcept
     : section{sf::Vector2f(Settings::SECTION3_WIDTH, Settings::SECTION3_HEIGHT)},
     button1{
         0, Settings::SECTION1_HEIGHT,
-        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
         Settings::font, "turn_right", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
 
     button2{
-        Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT,
-        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::SECTION1_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
         Settings::font, "turn_left", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button3{
-        Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT,
-        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        Settings::BUTTON_WIDTH * 2, Settings::SECTION1_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
         Settings::font, "move_forward", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button4{
-        0, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
-        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        0, Settings::SECTION1_HEIGHT + Settings::BUTTON_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
         Settings::font, "repeat_n_times", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button5{
-        Settings::MOVE_RIGHT_WIDTH, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
-        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::SECTION1_HEIGHT + Settings::BUTTON_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
          Settings::font,"repeat_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     },
     button6{
-        Settings::MOVE_RIGHT_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::MOVE_RIGHT_HEIGHT,
-        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        Settings::BUTTON_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::BUTTON_HEIGHT,
+        Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
         Settings::font, "ready_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
     }
 {
