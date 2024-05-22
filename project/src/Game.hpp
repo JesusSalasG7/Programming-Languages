@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include <src/Player.hpp>
 #include <src/World.hpp>
 #include <src/ControlPanel.hpp>
 #include <src/Instructions.hpp>
@@ -28,7 +27,6 @@ private:
     sf::RenderTexture render_texture;
     sf::Sprite render_sprite;
 
-    Player player;
     World world;
     ControlPanel control_panel;
     Instructions instructions;

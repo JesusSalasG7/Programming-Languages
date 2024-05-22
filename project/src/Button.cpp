@@ -16,7 +16,7 @@ Button::Button(float x, float y, float width, float height,
     this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setFillColor(sf::Color::White);
-    this->text.setCharacterSize(24);
+    this->text.setCharacterSize(12);
     this->text.setPosition(
         shape.getPosition().x + (shape.getGlobalBounds().width / 2.f) - this->text.getGlobalBounds().width / 2.f,
         shape.getPosition().y + (shape.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height / 2.f
@@ -34,7 +34,7 @@ Button::Button(float x, float y, float width, float height,
 void Button::update(float dt, const sf::Vector2i mouse_posicion) noexcept
 {
 
-    if (shape.getGlobalBounds().contains(mouse_posicion.x, mouse_posicion.y)) 
+    if (shape.getGlobalBounds().contains(mouse_posicion.x / 3, mouse_posicion.y / 3)) 
     {
         this->button_state = BTN_HOVER;
         

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <src/Player.hpp>
 
 class World
 {
@@ -17,5 +18,9 @@ public:
 
 private:
     sf::RectangleShape section;
+    std::vector<std::vector<int>> map;
+    Player player;
+    const int ROWS;
+    const int COLS;
 
 };

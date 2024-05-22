@@ -73,6 +73,28 @@ void Settings::load_textures()
     }
 
     Settings::textures["repeat_end"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "hole.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/hole.png"};
+    }
+
+    Settings::textures["muro"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "ice.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/ice.png"};
+    }
+
+    Settings::textures["camino"] = texture;
+
+    if (!texture.loadFromFile(Settings::GRAPHICS_PATH / "goal.png"))
+    {
+        throw std::runtime_error{"Error loading texture graphics/goal.png"};
+    }
+
+    Settings::textures["meta"] = texture;
+
 }
 
 void Settings::load_font()
