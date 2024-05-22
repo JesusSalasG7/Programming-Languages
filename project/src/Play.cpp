@@ -1,6 +1,8 @@
 #include <Settings.hpp>
 #include <src/Play.hpp>
 
+#include <sstream>
+
 Play::Play() noexcept
     : section{sf::Vector2f(Settings::SECTION4_WIDTH, Settings::SECTION4_HEIGHT)},
 
@@ -9,7 +11,24 @@ Play::Play() noexcept
         Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
         Settings::font, "Play", sf::Color::Green, sf::Color::Yellow, sf::Color::Red,
         [] (Program& p) {
-            
+        std::stringstream ss{};
+                    ss << '1' << '0' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '0' << '0' << '0' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '0' << '1' << '0' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '0' << '1' << '0' << '0' << '0' << '1' << '1' << '1' << '1';
+                    ss << '1' << '1' << '1' << '1' << '1' << '9' << '1' << '1' << '1' << '1';
+                    ss << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+                    ss << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1' << '1';
+
+        Environment env{ss, 0, 1, 1, 0};
+            for(auto scope : p.top())
+            {
+                scope->execute(env);
+                std::cout << "Position " << env.character.get_i() << " " << env.character.get_j() << std::endl;
+            }
         }
     }
 {
