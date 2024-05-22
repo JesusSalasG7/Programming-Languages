@@ -1,6 +1,8 @@
 #include <Settings.hpp>
 #include <src/ControlPanel.hpp>
 
+Program Global::program{{Scope{}}};
+
 ControlPanel::ControlPanel() noexcept
     : section{sf::Vector2f(Settings::SECTION3_WIDTH, Settings::SECTION3_HEIGHT)},
     button1{
@@ -32,7 +34,7 @@ ControlPanel::ControlPanel() noexcept
     button6{
         Settings::BUTTON_WIDTH * 2, Settings::SECTION1_HEIGHT + Settings::BUTTON_HEIGHT,
         Settings::BUTTON_WIDTH, Settings::BUTTON_HEIGHT,
-        Settings::font, "ready_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::font, "ready_end", sf::Color::Green, sf::Color::Yellow, sf::Color::Red
     }
 {
      section.setPosition(0, Settings::SECTION1_HEIGHT); 

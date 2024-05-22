@@ -8,6 +8,9 @@ Play::Play() noexcept
         Settings::SECTION1_WIDTH + 20, Settings::SECTION1_HEIGHT + 20,
         Settings::PLAY_BUTTON_WIDTH, Settings::PLAY_BUTTON_HEIGHT,
         Settings::font, "Play", sf::Color::Green, sf::Color::Yellow, sf::Color::Red 
+        Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT + 20,
+        Settings::MOVE_RIGHT_WIDTH, Settings::MOVE_RIGHT_HEIGHT,
+        Settings::font, "Play", sf::Color::Green, sf::Color::Yellow, sf::Color::Red
     }
 {
      section.setPosition(Settings::SECTION1_WIDTH, Settings::SECTION1_HEIGHT); 
